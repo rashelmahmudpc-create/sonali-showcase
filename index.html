@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="bn" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sonali — ভর্তি প্রস্তুতির নতুন যুগ | Admission Hub</title>
+  <meta name="description" content="Sonali — বাংলাদেশের বিশ্ববিদ্যালয়, মেডিকেল ও গুচ্ছ ভর্তির জন্য AI-চালিত স্মার্ট প্রস্তুতি প্ল্যাটফর্ম।" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Syne:wght@600;700;800&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+</head>
+<body>
+  <!-- Preloader -->
+  <div class="preloader" id="preloader">
+    <div class="pre-mark">S<span>.</span></div>
+    <div class="pre-bar"><i></i></div>
+    <p>লোড হচ্ছে…</p>
+  </div>
+
+  <!-- Scroll progress -->
+  <div class="progress-bar" id="progressBar"></div>
+
+  <!-- Custom cursor -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+
+  <!-- 3D canvas -->
+  <canvas id="webgl"></canvas>
+  <div class="gradient-overlay"></div>
+  <div class="noise"></div>
+
+  <!-- Navbar -->
+  <header class="nav" id="nav">
+    <a href="#home" class="brand">
+      <span class="brand-mark">S</span>
+      <span class="brand-text">Sonali<em>.</em></span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#features">ফিচার</a>
+      <a href="#courses">কোর্স</a>
+      <a href="#how">কিভাবে কাজ করে</a>
+      <a href="#stats">পরিসংখ্যান</a>
+      <a href="#testimonials">রিভিউ</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-btn" id="soundToggle" title="Sound" aria-label="Toggle sound">🔇</button>
+      <a href="#cta" class="btn btn-primary nav-cta magnetic">শুরু করুন</a>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <div class="hero-badge reveal">
+          <span class="dot"></span> AI-চালিত ভর্তি প্রস্তুতি প্ল্যাটফর্ম
+        </div>
+        <h1 class="hero-title">
+          <span class="line reveal">ভর্তি প্রস্তুতির</span>
+          <span class="line grad-text reveal">নতুন যুগ</span>
+        </h1>
+        <p class="hero-sub reveal">
+          বিশ্ববিদ্যালয়, মেডিকেল ও গুচ্ছ — সব ভর্তি পরীক্ষার প্রস্তুতি এক জায়গায়।
+          AI টিউটর, প্রশ্নব্যাংক, স্মার্ট অ্যানালিটিক্স আর অফলাইন সাপোর্ট সহ।
+        </p>
+        <div class="hero-actions reveal">
+          <a href="#cta" class="btn btn-primary magnetic">ফ্রি শুরু করুন <span>→</span></a>
+          <a href="#features" class="btn btn-ghost magnetic">ফিচার দেখুন</a>
+        </div>
+        <div class="hero-trust reveal">
+          <div class="avatars">
+            <span>আ</span><span>রা</span><span>সা</span><span>নি</span>
+          </div>
+          <p><strong>৫০,০০০+</strong> শিক্ষার্থী প্রস্তুতি নিচ্ছে</p>
+        </div>
+      </div>
+
+      <div class="scroll-cue"><span>স্ক্রল করুন</span><i></i></div>
+    </section>
+
+    <!-- ============ MARQUEE ============ -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-inner">
+        <span>ঢাকা বিশ্ববিদ্যালয়</span><i>✦</i><span>মেডিকেল ভর্তি</span><i>✦</i>
+        <span>গুচ্ছ (GST)</span><i>✦</i><span>বুয়েট</span><i>✦</i>
+        <span>মেডিকেল</span><i>✦</i><span>কৃষি গুচ্ছ</span><i>✦</i>
+        <span>ঢাকা বিশ্ববিদ্যালয়</span><i>✦</i><span>মেডিকেল ভর্তি</span><i>✦</i>
+        <span>গুচ্ছ (GST)</span><i>✦</i><span>বুয়েট</span><i>✦</i>
+        <span>মেডিকেল</span><i>✦</i><span>কৃষি গুচ্ছ</span><i>✦</i>
+      </div>
+    </div>
+
+    <!-- ============ FEATURES ============ -->
+    <section class="section" id="features">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow reveal">✦ ফিচার</span>
+          <h2 class="section-title reveal">সবকিছু যা দরকার, <span class="grad-text">এক অ্যাপে</span></h2>
+          <p class="section-sub reveal">পড়াশোনা থেকে পরীক্ষা — পুরো যাত্রাটা স্মার্টভাবে সাজানো।</p>
+        </div>
+        <div class="features-grid">
+          <article class="feature-card tilt reveal">
+            <div class="f-icon">🤖</div>
+            <h3>AI টিউটর (Sky)</h3>
+            <p>যেকোনো প্রশ্নের উত্তর, ব্যাখ্যা আর পার্সোনাল গাইডেন্স — ২৪/৭।</p>
+            <div class="f-glow"></div>
+          </article>
+          <article class="feature-card tilt reveal">
+            <div class="f-icon">📚</div>
+            <h3>স্মার্ট প্রশ্নব্যাংক</h3>
+            <p>হাজারো MCQ, ব্যাখ্যা ও টপিক-ভিত্তিক প্র্যাকটিস সেট।</p>
+            <div class="f-glow"></div>
+          </article>
+          <article class="feature-card tilt reveal">
+            <div class="f-icon">📊</div>
+            <h3>প্রগ্রেস অ্যানালিটিক্স</h3>
+            <p>দুর্বল টপিক চিহ্নিত করে স্মার্ট রিভিশন প্ল্যান।</p>
+            <div class="f-glow"></div>
+          </article>
+          <article class="feature-card tilt reveal">
+            <div class="f-icon">🔔</div>
+            <h3>রিয়েল-টাইম নোটিফিকেশন</h3>
+            <p>বিজ্ঞপ্তি, রুটিন আর পরীক্ষার আপডেট সবার আগে।</p>
+            <div class="f-glow"></div>
+          </article>
+          <article class="feature-card tilt reveal">
+            <div class="f-icon">🧠</div>
+            <h3>ভোকাবুলারি + SRS</h3>
+            <p>স্পেসড রিপিটিশন দিয়ে শব্দ মুখস্থ — সহজ ও টেকসই।</p>
+            <div class="f-glow"></div>
+          </article>
+          <article class="feature-card tilt reveal">
+            <div class="f-icon">📶</div>
+            <h3>অফলাইন মোড</h3>
+            <p>ইন্টারনেট ছাড়াও পড়া চালু — PWA সাপোর্ট।</p>
+            <div class="f-glow"></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HOW IT WORKS ============ -->
+    <section class="section alt" id="how">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow reveal">✦ প্রক্রিয়া</span>
+          <h2 class="section-title reveal">মাত্র <span class="grad-text">৩ ধাপে</span> শুরু</h2>
+        </div>
+        <div class="steps">
+          <div class="step reveal">
+            <div class="step-num">০১</div>
+            <h3>সাইন আপ করুন</h3>
+            <p>কয়েক সেকেন্ডে অ্যাকাউন্ট খুলে টার্গেট সেট করুন।</p>
+          </div>
+          <div class="step reveal">
+            <div class="step-num">০২</div>
+            <h3>প্রস্তুতি নিন</h3>
+            <p>AI টিউটর ও প্রশ্নব্যাংক দিয়ে প্রতিদিন প্র্যাকটিস।</p>
+          </div>
+          <div class="step reveal">
+            <div class="step-num">০৩</div>
+            <h3>ট্র্যাক করুন</h3>
+            <p>অ্যানালিটিক্স দেখে দুর্বল জায়গা ঠিক করুন।</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ COURSES ============ -->
+    <section class="section" id="courses">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow reveal">✦ কোর্স</span>
+          <h2 class="section-title reveal">যেসব পরীক্ষার <span class="grad-text">প্রস্তুতি</span></h2>
+        </div>
+        <div class="courses-grid">
+          <article class="course reveal">
+            <div class="course-top" style="--a:#7c6cff;--b:#00e6c3"><span>🎓</span></div>
+            <div class="course-body">
+              <h3>বিশ্ববিদ্যালয় ভর্তি</h3>
+              <p>ঢাকা বিশ্ববিদ্যালয় সহ জাতীয় বিশ্ববিদ্যালয়গুলো।</p>
+              <span class="course-tag">৪০+ টপিক</span>
+            </div>
+          </article>
+          <article class="course reveal">
+            <div class="course-top" style="--a:#ff5f9e;--b:#ffb86c"><span>🩺</span></div>
+            <div class="course-body">
+              <h3>মেডিকেল ভর্তি</h3>
+              <p>MBBS ও ডেন্টাল — পূর্ণাঙ্গ সিলেবাস কভারেজ।</p>
+              <span class="course-tag">৩০+ টপিক</span>
+            </div>
+          </article>
+          <article class="course reveal">
+            <div class="course-top" style="--a:#00c2ff;--b:#7c4dff"><span>🧪</span></div>
+            <div class="course-body">
+              <h3>গুচ্ছ (GST)</h3>
+              <p>সাধারণ ও বিজ্ঞান গুচ্ছের কমপ্লিট প্রস্তুতি।</p>
+              <span class="course-tag">৩৫+ টপিক</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STATS ============ -->
+    <section class="section stats-section" id="stats">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat reveal"><h3 data-count="50000" data-suffix="+">০</h3><p>শিক্ষার্থী</p></div>
+          <div class="stat reveal"><h3 data-count="12000" data-suffix="+">০</h3><p>প্রশ্ন</p></div>
+          <div class="stat reveal"><h3 data-count="120" data-suffix="+">০</h3><p>কোর্স ও টপিক</p></div>
+          <div class="stat reveal"><h3 data-count="98" data-suffix="%">০</h3><p>সন্তুষ্টি</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TESTIMONIALS ============ -->
+    <section class="section alt" id="testimonials">
+      <div class="container narrow center">
+        <div class="section-head">
+          <span class="eyebrow reveal">✦ রিভিউ</span>
+          <h2 class="section-title reveal">শিক্ষার্থীরা যা <span class="grad-text">বলছে</span></h2>
+        </div>
+        <div class="testi-wrap reveal">
+          <div class="testi-track" id="testiTrack">
+            <blockquote class="testi">
+              <p>“AI টিউটরটা আমার সব দুর্বল টপিক ধরিয়ে দিয়েছে। প্রস্তুতি অনেক সহজ হয়েছে।”</p>
+              <footer><strong>আরিফা রহমান</strong><span>মেডিকেল ভর্তি ২০২৫</span></footer>
+            </blockquote>
+            <blockquote class="testi">
+              <p>“অফলাইন মোড আর অ্যানালিটিক্স — দুটোই দারুণ। গ্রামে থেকেও প্রস্তুতি নিতে পারছি।”</p>
+              <footer><strong>সাকিব হাসান</strong><span>বিশ্ববিদ্যালয় ভর্তি</span></footer>
+            </blockquote>
+            <blockquote class="testi">
+              <p>“প্রশ্নব্যাংক আর রিভিশন প্ল্যানটা সত্যিই সময় বাঁচায়। Highly recommended!”</p>
+              <footer><strong>নুসরাত জাহান</strong><span>গুচ্ছ (GST)</span></footer>
+            </blockquote>
+          </div>
+          <div class="testi-dots" id="testiDots"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CTA ============ -->
+    <section class="section cta-section" id="cta">
+      <div class="container">
+        <div class="cta-card reveal">
+          <div class="cta-glow"></div>
+          <h2>আজই শুরু করুন আপনার <span class="grad-text">ভর্তি যুদ্ধ</span></h2>
+          <p>ফ্রি অ্যাকাউন্ট খুলুন — কোনো কার্ড লাগবে না।</p>
+          <div class="cta-actions">
+            <a href="#" class="btn btn-primary magnetic">ফ্রি শুরু করুন <span>→</span></a>
+            <a href="#" class="btn btn-ghost magnetic">অ্যাপ ডাউনলোড</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <a href="#home" class="brand"><span class="brand-mark">S</span><span class="brand-text">Sonali<em>.</em></span></a>
+      <p>© <span id="year"></span> Sonali — Admission Hub. সর্বস্বত্ব সংরক্ষিত।</p>
+      <div class="footer-links">
+        <a href="#features">ফিচার</a><a href="#courses">কোর্স</a><a href="#cta">শুরু করুন</a>
+      </div>
+    </div>
+  </footer>
+
+  <button class="to-top" id="toTop" aria-label="Back to top">↑</button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
